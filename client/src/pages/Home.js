@@ -1,29 +1,26 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from "react";
 
 function Home() {
-  const [backendData, setbackendData] = useState([{}])
+  const [backendData, setbackendData] = useState([{}]);
 
-  useEffect(() =>{
-    fetch("/api").then(
-      response => response.json()
-    ).then(
-      data => {
-        setbackendData(data)
-      }
-    )
-  }, [])
-  
+  useEffect(() => {
+    fetch("/api")
+      .then((response) => response.json())
+      .then((data) => {
+        setbackendData(data);
+      });
+  }, []);
+
   return (
     <div>
-      {(typeof backendData.users == 'undefined') ? (
+      <h2>At home</h2>
+      {typeof backendData.users == "undefined" ? (
         <p>Loading...</p>
-      ):(
-        backendData.users.map((user, i)=>(
-          <p key = {i}>{user}</p>
-        ))
+      ) : (
+        backendData.users.map((user, i) => <p key={i}>{user}</p>)
       )}
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
