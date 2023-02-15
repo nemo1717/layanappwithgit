@@ -29,7 +29,7 @@ router.get('/query_product/:id', queryProducts)
 // delete product (inactive)
 router.patch('/delete_product/:id', deleteProduct)
 
-// query pay latest Thanks
+// query pay latest Thanks good boy
 router.get('/query_pay/:id', queryProducts)
 
 
