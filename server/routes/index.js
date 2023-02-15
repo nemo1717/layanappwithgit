@@ -29,6 +29,9 @@ router.get('/query_product/:id', queryProducts)
 // delete product (inactive)
 router.patch('/delete_product/:id', deleteProduct)
 
+// query pay latest Thanks
+router.get('/query_pay/:id', queryProducts)
+
 
 router.get("/api", (req, res, next) => {
     res.json({"users": ["userOne", "userTwo", "userThree", "userFour"]})
