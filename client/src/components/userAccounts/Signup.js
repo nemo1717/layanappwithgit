@@ -107,6 +107,7 @@ function Register() {
         <Form>
           <SmallText>{signupStatus}</SmallText>
           <Input
+            required
             type="text"
             placeholder="Business Name"
             onChange={(e) => {
@@ -120,6 +121,7 @@ function Register() {
             onChange={(e) => {
               setEmail(e.target.value);
             }}
+            required
           />
 
           <Input
@@ -128,6 +130,7 @@ function Register() {
             onChange={(e) => {
               setPhoneNumber(e.target.value);
             }}
+            required
           />
 
           <Input
@@ -136,6 +139,7 @@ function Register() {
             onChange={(e) => {
               setAddress(e.target.value);
             }}
+            required
           />
 
           <Input
@@ -144,6 +148,7 @@ function Register() {
             onChange={(e) => {
               setCity(e.target.value);
             }}
+            required
           />
 
           <Input
@@ -152,6 +157,7 @@ function Register() {
             onChange={(e) => {
               setState(e.target.value);
             }}
+            required
           />
 
           <Input
@@ -176,6 +182,7 @@ function Register() {
             onChange={(e) => {
               setPasswordReg(e.target.value);
             }}
+            required
           />
 
           <Input
@@ -184,6 +191,7 @@ function Register() {
             onChange={(e) => {
               setPasswordReg2(e.target.value);
             }}
+            required
           />
 
           <Marginer direction="vertical" margin="1em" />
