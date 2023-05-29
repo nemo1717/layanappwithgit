@@ -2,14 +2,17 @@
 const express = require('express')
 const router = express.Router()
 const passport = require('passport');
-const{addProduct,
-    getProduct,
-    queryProducts,
-    deleteProduct
-} = require('../controllers/productController')
-
+const {addBoughtProduct} = require('../controllers/Products/boughtProduct')
+const {dashboardData} = require('../controllers/Dashboard/dashboard')
+const salesFunc = require('../controllers/Sales/addSales')
+const categoryFunc = require('../controllers/Products/category')
+const productFunc = require('../controllers/Products/addNewProduct')
 const {signUpBusiness} = require('../controllers/Authentications/signupController')
 const {mainLogin} = require('../controllers/Authentications/mainLogin')
+const {mainLogout} = require('../controllers/Authentications/mainLogout')
+
+
+
 
 // Main Business Signup
 router.post('/signup_business', signUpBusiness)
@@ -17,18 +20,35 @@ router.post('/signup_business', signUpBusiness)
 // Main Business Login
 router.post('/main_login', mainLogin)
 
-// add product
-router.post('/add_product', addProduct)
+// Main Business logout
+router.get('/logout', mainLogout)
 
-// get product
-router.get('get_product', getProduct)
+// add Category
+router.post("/add_category", categoryFunc.addCategory)
 
-// query product
-router.get('/query_product/:id', queryProducts)
+// add new product
+router.post("/add_product", productFunc.addNewProduct)
 
-// delete product (inactive)
-router.patch('/delete_product/:id', deleteProduct)
+// get category
+router.get('/get_category', categoryFunc.getCategory)
 
+// get products
+router.get('/get_product', productFunc.getProduct)
+
+// add new bought products
+router.post('/add_bought_product', addBoughtProduct)
+
+// add new sales
+router.post('/add_sales', salesFunc.addSales)
+
+// add new sales
+router.get('/get_sales', salesFunc.getSales)
+
+// dashboard data
+router.get('/dashboard_data', dashboardData)
+
+// add new bought products
+router.post('/update_product', productFunc.updateProduct)
 
 router.get("/api", (req, res, next) => {
     res.json({"users": ["userOne", "userTwo", "userThree", "userFour"]})

@@ -50,7 +50,7 @@ module.exports = function(passport) {
     passport.deserializeUser(function(id, done) {
       MainUserLogin.find({_id:id}).
           then(user =>{
-            done(err, user);
-      });
+            done(null, user);
+          }).catch(error => console.log("there is issue"));
     });
 };
